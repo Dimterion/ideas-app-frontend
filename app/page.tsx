@@ -1,5 +1,6 @@
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import styles from "@/app/ui/home.module.css";
 
 export default function Page() {
   return (
@@ -10,6 +11,8 @@ export default function Page() {
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             Welcome.
           </p>
+          {/* CSS Module styles */}
+          <div className={styles.shape} />
           <Link
             href="/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
