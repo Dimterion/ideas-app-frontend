@@ -12,7 +12,7 @@ const FormSchema = z.object({
   }),
   amount: z.coerce
     .number()
-    .gt(0, { message: "Please enter an amount greater than $0." }),
+    .gt(0, { message: "Please enter an amount greater than 0." }),
   status: z.enum(["pending", "paid"], {
     invalid_type_error: "Please select an invoice status.",
   }),
@@ -41,7 +41,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Missing Fields. Failed to Create Invoice.",
+      message: "Missing Fields. Could not create invoice.",
     };
   }
 
@@ -56,11 +56,12 @@ export async function createInvoice(prevState: State, formData: FormData) {
     `;
   } catch (error) {
     return {
-      message: "Database Error: Failed to Create Invoice.",
+      message: "Database Error: Could not create invoice.",
     };
   }
 
   revalidatePath("/dashboard/invoices");
+
   redirect("/dashboard/invoices");
 }
 
