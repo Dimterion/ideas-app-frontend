@@ -3,7 +3,10 @@ import { inter } from "@/app/ui/fonts";
 import "@/app/ui/global.css";
 
 export const metadata: Metadata = {
-  title: "Finboard",
+  title: {
+    template: "%s | Finboard",
+    default: "Finboard",
+  },
   description: "Finboard project.",
   metadataBase: new URL("https://finboard-rho.vercel.app/"),
 };
