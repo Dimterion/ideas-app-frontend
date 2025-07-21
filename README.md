@@ -1,1 +1,1 @@
-# Finboard
+# Ideas App Frontend
